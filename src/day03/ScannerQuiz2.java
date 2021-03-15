@@ -8,13 +8,13 @@ public class ScannerQuiz2 {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.printf("얼마 있어요??");
+        System.out.print("얼마 있어요??");
         int money = sc.nextInt();
 
         /* 3항
         String food = money >= 5000 ? "김치찌개" : money >= 2500 ? "라면" : "굶어!";
          */
-        String food = "미정";
+        /*String food = "미정";
         if (money >= 5000) {
             food = "김치찌개";
         } else if (money >= 2500) {
@@ -24,6 +24,8 @@ public class ScannerQuiz2 {
         }
 
         System.out.printf("선택된 음식: %s", food);
+        */
+
 
     }
 }
