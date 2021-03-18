@@ -3,7 +3,7 @@ package day06;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class RussianRoulette {
+public class RussianRoulette1 {
 
     public static void main(String[] args) {
 
@@ -15,14 +15,15 @@ public class RussianRoulette {
 
         //실린더 칸 설정
         int cylinderMax = 6;
+        //종료 변수 선언
+        boolean end = false;
 
         while (true) {
-            System.out.print("게임 인원 (" + minPlayer + " ~ " + maxPlayer + "명) ==> ");
+            System.out.print("게임 인원 (" + minPlayer + " ~ " + maxPlayer +"명) ==> ");
             int number = sc.nextInt();
 
             if (number < minPlayer | number > maxPlayer) {
-                System.out.println("게임 인원은 " + minPlayer + " ~ " + maxPlayer + "명이어야 합니다.");
-                continue;//플레이어 숫자가 정해진 범위를 넘었을 시 반복문 재실행
+                System.out.println("게임 인원은 " + minPlayer + " ~ " + maxPlayer +"명이어야 합니다.");
             } else {
                 String[] players = new String[number];
                 System.out.println("플레이어 이름을 등록합니다.");
@@ -39,7 +40,6 @@ public class RussianRoulette {
                     if (bullets < 1 | bullets > (cylinderMax - 1)) {
                         //총알의 개수는 1개보다 작을 수 없고, 실린더의 칸과 같거나 보다 많을 수 없다.
                         System.out.println("실탄 개수는 1개 ~ " + (cylinderMax - 1) + "개로 설정해주세요.");
-                        continue;//총알 숫자가 정해진 범위를 넘었을 시 반복문 재실행
                     } else {
                         boolean[] cylinder = new boolean[cylinderMax];
                         System.out.println("실탄을 넣고 탄창을 무작위로 돌립니다.\n");
@@ -62,20 +62,17 @@ public class RussianRoulette {
                         boolean rotation = true;//실린더를 회전할지 결정하는 변수
                         int bang = (int) (Math.random() * cylinderMax);
                         //변수 bang의 값은 cylinder 배열을 탐색하는 인덱스요소에 적용되기 때문에 배열의 최대값으로 범위를 결정한다.
-                        while (true) {
-                            if (players.length == 0 | bullets == 0) {
-                                break;//플레이어가 모두 죽거나, 총알이 없어지면 반복문 종료
-                            }
+                        while (players.length > 0 & bullets > 0) {//플레이어가 모두 죽거나, 총알이 없어질때까지 반복
                             if (turn == players.length) {
                                 turn = 0;
                             }
 
                             System.out.print("[" + players[turn] + "의 턴!]");
                             if (rotation) {
-                                System.out.println(" 실린더를 무작위로 돌립니다.");
+                                System.out.println(" 탄창을 무작위로 돌립니다.");
                                 bang = (int) (Math.random() * cylinderMax);
                             } else {
-                                System.out.println(" 총을 그대로 넘겨받습니다.");
+                                System.out.println();
                                 if (bang < cylinderMax - 1) {
                                     //변수 bang은 인덱스값에 적용되기 때문에 그 최대값이 배열 최대길이보다 1작아야한다.
                                     bang++;
@@ -119,8 +116,7 @@ public class RussianRoulette {
                                 for (int i = 0; i < temp.length; i++) {
                                     temp[i] = players[i];
                                 }
-                                players = temp;
-                                temp = null;
+                                players = temp; temp = null;
 
                             }//격발 판정 if문 종료
                             //System.out.println(bullets);
@@ -128,11 +124,15 @@ public class RussianRoulette {
 
                         }//턴 반복 for문 종료
                     }//룰렛 반복 while문 종료
-                    System.out.println("최종 생존자: " + Arrays.toString(players));
-                    break;
+
+                        System.out.println("최종 생존자: " + Arrays.toString(players));
+                        break;
+
                 }//실탄 while문 종료
             }//게임 인원 if문 종료
-            break;
+
+                break;
+
         }//게임 인원 while문 종료
 
     }

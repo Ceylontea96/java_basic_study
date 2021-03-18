@@ -1,6 +1,9 @@
 package day05;
 
-public class functionPush {
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+public abstract class functionPush {
 
     public static void main(String[] args) {
 
@@ -29,5 +32,12 @@ public class functionPush {
 
  */
 
+    }
+    public static String[] test(int te) {
+        String[] array = new String[te];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = "i";
+        }
+        return array;
     }
 }
