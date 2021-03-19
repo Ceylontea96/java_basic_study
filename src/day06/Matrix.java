@@ -63,5 +63,17 @@ public class Matrix {
         };
         System.out.println("==========================");
         System.out.println(arr3d[2][0][2]);
+
+        System.out.println("===========================");
+        String[][] test = {{}};
+        String[] test1 = new String[6];
+        test1[0] = "1";
+        test1[1] = "2";
+        test1[2] = "3";
+        test1[3] = "4";
+        test1[4] = "5";
+
+        test[0] = test1;
+        System.out.println(Arrays.toString(test[0]));
     }
 }

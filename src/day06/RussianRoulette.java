@@ -62,10 +62,9 @@ public class RussianRoulette {
                         boolean rotation = true;//실린더를 회전할지 결정하는 변수
                         int bang = (int) (Math.random() * cylinderMax);
                         //변수 bang의 값은 cylinder 배열을 탐색하는 인덱스요소에 적용되기 때문에 배열의 최대값으로 범위를 결정한다.
+
                         while (true) {
-                            if (players.length == 0 | bullets == 0) {
-                                break;//플레이어가 모두 죽거나, 총알이 없어지면 반복문 종료
-                            }
+
                             if (turn == players.length) {
                                 turn = 0;
                             }
@@ -85,8 +84,8 @@ public class RussianRoulette {
                             }
 
                             System.out.println("# 엔터를 누르면 격발합니다.");
-                            sc.nextLine();
-                            sc.nextLine();
+                            sc.nextLine(); // 위에서 발생한 nexInt의 \n을 처리하는 구문
+                            sc.nextLine(); // 실제로 엔터를 입력받는 기능
                             //이 아래부터 맞았는지 판정
 
                             //처음이면 first로 돌리고 끝날때 선택, 선택 결과에 따라 +1할지 다시 돌릴지
@@ -122,9 +121,21 @@ public class RussianRoulette {
                                 players = temp;
                                 temp = null;
 
+                                //플레이어가 한명 남거나, 총알이 없어지면 반복문 종료
+                                if (players.length == 1) {
+                                    System.out.println("플레이어가 한 명 남았습니다. 게임을 종료합니다.");
+                                    break;
+                                } else if (bullets == 0) {
+                                    System.out.println("총알이 모두 소진되었습니다. 게임을 종료합니다.");
+                                    break;
+                                } else {
+                                    System.out.println("\n남은 인원으로 게임을 계속합니다.");
+                                    System.out.println("남은 인원: " + Arrays.toString(players));
+                                }
                             }//격발 판정 if문 종료
                             //System.out.println(bullets);
                             //남은 총알
+
 
                         }//턴 반복 for문 종료
                     }//룰렛 반복 while문 종료
