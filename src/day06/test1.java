@@ -100,6 +100,7 @@ public class test1 {
                                     idOk = false;
                                 }
                             }
+                            //
                             if (!idOk) {
                                 System.out.println("중복된 ID입니다.");
                             } else {
