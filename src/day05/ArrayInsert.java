@@ -25,5 +25,7 @@ public class ArrayInsert {
         //5. 신규 배열 변수가 더이상 신규 배열을 제어할 수 없도록 설정.
         temp = null;
         System.out.println(Arrays.toString(arr));
+
+
     }
 }
