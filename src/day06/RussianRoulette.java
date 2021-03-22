@@ -8,6 +8,7 @@ public class RussianRoulette {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        //branch 확인용 주석
 
         //게임 참가인원 제한
         int minPlayer = 2;
