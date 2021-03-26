@@ -4,7 +4,7 @@ package day09.inherit.player;
 public class Player extends Object{//상속을 사용하지 않으면 자동으로 Object를 사용
 
     //공통 필드
-    String nickName;
+    private String nickName;
     private int level;
     int hp;
 
@@ -21,7 +21,11 @@ public class Player extends Object{//상속을 사용하지 않으면 자동으�
         System.out.printf("%s님이 공격합니다.\n", this.nickName);
     }
 
-    void info() {
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void info() {
         System.out.println("====================================");
         System.out.println("# 캐릭터명: " + nickName);
         System.out.println("# 레벨: " + level);

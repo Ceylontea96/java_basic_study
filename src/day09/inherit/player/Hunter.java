@@ -10,7 +10,7 @@ public class Hunter extends Player{
     }
 
     @Override //오버라이딩 룰을 위반했는지 확인
-    void info() {
+    public void info() {
         super.info();
         System.out.println("# 동물: " +beast);
     }
