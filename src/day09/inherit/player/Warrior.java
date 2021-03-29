@@ -19,7 +19,23 @@ public class Warrior extends Player{
         System.out.println("# 분노: " +rage);
     }
 
-    void fireSlash() {
+    public void fireSlash(Player target) {
+
+        System.out.printf("%s님이 %s님에게 FireSlash를 시전했습니다!\n", this.getNickName(), target.getNickName());
+        if (target instanceof Warrior) {
+            System.out.printf("%s(전사)님이 10의 피해를 입었습니다.\n", target.getNickName());
+            target.hp -= 10;
+            System.out.printf("%s님의 현재 체력: %d\n",target.getNickName(), target.hp);
+        } else if(target instanceof Mage) {
+            System.out.printf("%s(마법사)님이 20의 피해를 입었습니다.\n", target.getNickName());
+            target.hp -= 20;
+            System.out.printf("%s님의 현재 체력: %d\n",target.getNickName(), target.hp);
+        } else if(target instanceof Hunter) {
+            System.out.printf("%s(사냥꾼)님이 15의 피해를 입었습니다.\n", target.getNickName());
+            target.hp -= 15;
+            System.out.printf("%s님의 현재 체력: %d\n",target.getNickName(), target.hp);
+        }
+        System.out.println();
 
     }
 
