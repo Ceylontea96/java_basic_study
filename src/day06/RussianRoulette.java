@@ -1,13 +1,28 @@
 package day06;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RussianRoulette {
 
+    private static Scanner sc = new Scanner(System.in);
+
+    public static int safeNextInt() {
+        while (true) {
+            int num = 0;
+            try {
+                num = sc.nextInt();
+                return num;
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                System.out.println("정수로만 입력하세요.");
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
 
         //게임 참가인원 제한
         int minPlayer = 2;
@@ -18,7 +33,7 @@ public class RussianRoulette {
 
         while (true) {
             System.out.print("게임 인원 (" + minPlayer + " ~ " + maxPlayer + "명) ==> ");
-            int number = sc.nextInt();
+            int number = safeNextInt();
 
             if (number < minPlayer | number > maxPlayer) {
                 System.out.println("게임 인원은 " + minPlayer + " ~ " + maxPlayer + "명이어야 합니다.");
@@ -34,7 +49,7 @@ public class RussianRoulette {
 
                 while (true) {
                     System.out.print("실탄 개수 (" + cylinderMax + "미만) ==> ");
-                    int bullets = sc.nextInt();
+                    int bullets = safeNextInt();
 
                     if (bullets < 1 | bullets > (cylinderMax - 1)) {
                         //총알의 개수는 1개보다 작을 수 없고, 실린더의 칸과 같거나 보다 많을 수 없다.
