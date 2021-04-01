@@ -1,8 +1,8 @@
-package test;
+package day14.lang.string;
 
-import java.util.Scanner;
+import java.util.*;
 
-public class test01 {
+public class StrQuiz {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -50,7 +50,7 @@ public class test01 {
                 break;
         }
 
-
-
     }
+
+
 }
